@@ -1,16 +1,8 @@
 ***react client
-.../kufiber_frontend : npm i ///install lib
-.../kufiber_frontend : npm start dev //run
+.../kufiber_frontend : docker-compose -f .\docker-compose.yaml up --build
 
 ***server
-.../server : npm i ///install lib
-.../server : nodemon server.js //run
+.../server : docker-compose up --build 
 
 
-***server connect database
 
-.../server/server/database/database.js
-
-...mongoose.connect(___mongodbdirname, {
-
--->  ...mongoose.connect('mongodb://localhost:27017/data', {
