@@ -3,7 +3,7 @@ module.exports = function(app) {
   app.use(
     '/products',
     createProxyMiddleware({
-      target: 'http://localhost:8888',
+      target: 'http://localhost:9000',
       changeOrigin: true,
     })
   );

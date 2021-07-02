@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
 const Connect = async () => {
-    
-    mongoose.connect('mongodb://localhost:27017/data', {
+    //mongodb://mongo:27017/expressmongo
+    //mongoose.connect('mongodb://localhost:27017/data', {
+    mongoose.connect('mongodb://mongo:27017/expressmongo', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

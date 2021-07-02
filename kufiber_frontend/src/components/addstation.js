@@ -91,7 +91,7 @@ const Addstation = () => {
    
     const blog = { name };
 
-    fetch('/station', {
+    fetch('localhost:9001/station', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog)

@@ -2,7 +2,7 @@ import {Form,Button,Card,Container,Row,Col,Nav} from 'react-bootstrap';
 import './style.css';
 import Bottom from './bottom';
 import React, { useState, useEffect } from 'react';
-import Axios from "axios"
+//import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import Headbar from './headbar';
@@ -16,12 +16,20 @@ const Register = () => {
   const history = useHistory()
 
   const register =()=>{
-    Axios.post("/register",{
+    fetch("/register", {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      username: regusername,
+      password: regpassword,
+    })
+    
+    /*axios.post("/register",{
       username: regusername,
       password: regpassword,
     }).then((res)=>{
       
     });
+    */
   }
 
   return (

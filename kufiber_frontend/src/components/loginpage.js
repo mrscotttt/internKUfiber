@@ -2,7 +2,7 @@ import {Form,Button,Card,Container,Row,Col,Nav} from 'react-bootstrap';
 import './style.css';
 import Bottom from './bottom';
 import React, { useState, useEffect } from 'react';
-import Axios from "axios"
+//import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
@@ -23,7 +23,8 @@ const Login = () => {
   },[])
 
   const gotlogin =()=>{
-      Axios.get("/login")
+      fetch("/login")
+      .then(res => res.json())
       .then((res)=>{
         if (res.data.message === "go") {
           history.push({
@@ -40,7 +41,8 @@ const Login = () => {
       );
   }
 
-  /*const register =()=>{
+  /*
+  const register =()=>{
     Axios.post("/register",{
       username: regusername,
       password: regpassword,
@@ -50,12 +52,18 @@ const Login = () => {
   }*/
 
   const login =()=>{
-    Axios.post("/login",{
+    /*Axios.post("/login",{
       username: logusername,
       password: logpassword,
     }).then((res)=>{
       
-    });
+    });*/
+    fetch("/login", {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      username: logusername,
+      password: logpassword,
+    })
   }
 
   return (
@@ -96,7 +104,7 @@ const Login = () => {
             </Card.Body>
             </Card>
             <br></br><br></br><br></br>
-            {/*<Card>
+            <Card>
             <Card.Header as="h5">{"register"}</Card.Header>
             <Card.Body>
               <form>
@@ -118,14 +126,15 @@ const Login = () => {
               </Form.Group>
 
               
-              <Button onClick={register} variant="success" type="submit">
+              <Button //onClick={register} 
+              variant="success" type="submit">
                 Create
               </Button>
             
 
               </form>
             </Card.Body>
-            </Card> */}
+            </Card> 
           </Col>
           <Col></Col>
           </Row>
@@ -134,6 +143,9 @@ const Login = () => {
           
     </div>
   );
+  
 }
 
 export default Login;
+
+
